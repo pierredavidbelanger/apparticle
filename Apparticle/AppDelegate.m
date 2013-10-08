@@ -99,7 +99,6 @@ typedef NSUInteger SaveBeforeMode;
     switch (returnCode) {
         case NSAlertDefaultReturn:
             self.saveBeforeMode = SaveBeforeModeQuit;
-            //[self save:self];
             [self performSelectorOnMainThread:@selector(save:) withObject:self waitUntilDone:NO];
             break;
         case NSAlertAlternateReturn:
@@ -117,13 +116,11 @@ typedef NSUInteger SaveBeforeMode;
     switch (returnCode) {
         case NSAlertDefaultReturn:
             self.saveBeforeMode = SaveBeforeModeOpen;
-            //[self save:self];
             [self performSelectorOnMainThread:@selector(save:) withObject:self waitUntilDone:NO];
             break;
         case NSAlertAlternateReturn:
             [self.window setDocumentEdited:NO];
-            //[self save:self];
-            [self performSelectorOnMainThread:@selector(save:) withObject:self waitUntilDone:NO];
+            [self performSelectorOnMainThread:@selector(open:) withObject:self waitUntilDone:NO];
             break;
         case NSAlertOtherReturn:
         default:
@@ -192,6 +189,10 @@ typedef NSUInteger SaveBeforeMode;
     [fileFormat writeParticleSystem:self.stage.part toURL:[self.window representedURL]];
     [self.window setDocumentEdited:NO];
     [self.window setTitleWithRepresentedFilename:[[self.window representedURL] path]];
+}
+
+- (void)doAfterSave
+{
     if (self.saveBeforeMode == SaveBeforeModeQuit) {
         [[NSApplication sharedApplication] replyToApplicationShouldTerminate:YES];
     } else if (self.saveBeforeMode == SaveBeforeModeOpen) {
@@ -211,9 +212,11 @@ typedef NSUInteger SaveBeforeMode;
                 [self.window setRepresentedURL:p.URL];
                 [self doSave];
             }
+            [self doAfterSave];
         }];
     } else {
         [self doSave];
+        [self doAfterSave];
     }
 }
 

@@ -62,7 +62,7 @@
             for (size_t i = 0; i < count; i++) {
                 NSString *property = [NSString stringWithCString:property_getName(properties[i])
                                                         encoding:NSASCIIStringEncoding];
-                if (![property isEqualToString:@"dirty"])
+                if (![property isEqualToString:@"dirty"] && ![property isEqualToString:@"position"])
                     [keys addObject: property];
             }
             free(properties);
