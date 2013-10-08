@@ -1,6 +1,6 @@
 //
 // Apparticle
-// http://pjer.ca/apparticle
+// http://apparticle.pjer.ca
 //
 // Created by Pierre-David Bélanger <pierredavidbelanger@gmail.com>
 // Copyright (c) 2013 PjEr.ca. All rights reserved.
