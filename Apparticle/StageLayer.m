@@ -35,6 +35,7 @@
         FileFormatCocos2d *fileFormat = [[FileFormatCocos2d alloc] init];
         [fileFormat readParticleSystem:self.part fromURL:[[NSBundle mainBundle] URLForResource:@"default" withExtension:@"plist"]];
         self.part.position = ccpMult(ccp(size.width, size.height), 0.5);
+        self.part.positionType = kCCPositionTypeFree;
         self.part.textureImage = [NSImage imageNamed:@"fire.png"];
         self.part.textureName = @"fire.png";
         [self addChild:self.part];
@@ -48,18 +49,21 @@
     return [ParticleSystem particleWithTotalParticles:totalParticles];
 }
 
-- (BOOL)ccMouseUp:(NSEvent *)event
+- (BOOL)ccMouseDown:(NSEvent *)event
 {
-    self.part.positionType = kCCPositionTypeRelative;
     self.part.position = [[CCDirector sharedDirector] convertEventToGL:event];
     return YES;
 }
 
 - (BOOL)ccMouseDragged:(NSEvent *)event
 {
-    self.part.positionType = kCCPositionTypeFree;
     self.part.position = [[CCDirector sharedDirector] convertEventToGL:event];
     return YES;
+}
+
+- (void)reshape:(CGSize)size
+{
+    [self changeWidth:size.width height:size.height];
 }
 
 #pragma mark Tab - Stage

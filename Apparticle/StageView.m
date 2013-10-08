@@ -21,26 +21,14 @@
 // along with Apparticle.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "cocos2d.h"
+#import "StageView.h"
 
-#import "StageLayer.h"
+@implementation StageView
 
-@interface AppDelegate : NSObject <NSApplicationDelegate, NSSplitViewDelegate>
-
-@property (weak) IBOutlet NSWindow	*window;
-@property (weak) IBOutlet CCGLView	*glView;
-
-@property BOOL showStats;
-
-@property (strong) StageLayer *stage;
-
-- (IBAction)toggleFullScreen:(id)sender;
-
-- (void)reshape:(CGSize)size;
-
-- (IBAction)open:(id)sender;
-- (IBAction)save:(id)sender;
-
-- (IBAction)imageDragPerformed:(id)sender;
+- (void)reshape
+{
+    [super reshape];
+    [self.appDelegate reshape:[self bounds].size];
+}
 
 @end

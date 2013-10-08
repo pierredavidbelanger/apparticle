@@ -25,12 +25,13 @@
 
 #import "ParticleSystem.h"
 
-// HelloWorldLayer
 @interface StageLayer : CCLayerGradient
 
 @property (strong) ParticleSystem *part;
 
 @property (strong) NSColor *layerStartColor;
 @property (strong) NSColor *layerEndColor;
+
+- (void)reshape:(CGSize)size;
 
 @end
