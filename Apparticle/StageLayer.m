@@ -61,6 +61,11 @@
     return YES;
 }
 
+- (void)reshape:(CGSize)size
+{
+    [self changeWidth:size.width height:size.height];
+}
+
 #pragma mark Tab - Stage
 
 - (NSColor *)layerStartColor

@@ -23,24 +23,12 @@
 
 #import "cocos2d.h"
 
-#import "StageLayer.h"
+#import "CCGLView.h"
 
-@interface AppDelegate : NSObject <NSApplicationDelegate, NSSplitViewDelegate>
+#import "AppDelegate.h"
 
-@property (weak) IBOutlet NSWindow	*window;
-@property (weak) IBOutlet CCGLView	*glView;
+@interface StageView : CCGLView
 
-@property BOOL showStats;
-
-@property (strong) StageLayer *stage;
-
-- (IBAction)toggleFullScreen:(id)sender;
-
-- (void)reshape:(CGSize)size;
-
-- (IBAction)open:(id)sender;
-- (IBAction)save:(id)sender;
-
-- (IBAction)imageDragPerformed:(id)sender;
+@property (strong) IBOutlet AppDelegate *appDelegate;
 
 @end

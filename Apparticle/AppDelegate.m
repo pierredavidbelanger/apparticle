@@ -158,6 +158,11 @@ typedef NSUInteger SaveBeforeMode;
 	[director setFullScreen: ! [director isFullScreen] ];
 }
 
+- (void)reshape:(CGSize)size
+{
+    [self.stage reshape:size];
+}
+
 - (void)doOpen
 {
     FileFormatCocos2d *fileFormat = [[FileFormatCocos2d alloc] init];

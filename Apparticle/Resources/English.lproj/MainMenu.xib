@@ -1979,9 +1979,12 @@
                                 <rect key="frame" x="404" y="0.0" width="496" height="600"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <subviews>
-                                    <openGLView colorSize="5bit_RGB_8bit_Alpha" useAuxiliaryDepthBufferStencil="NO" useDoubleBufferingEnabled="YES" allowOffline="YES" id="533" customClass="CCGLView">
+                                    <openGLView colorSize="5bit_RGB_8bit_Alpha" useAuxiliaryDepthBufferStencil="NO" useDoubleBufferingEnabled="YES" allowOffline="YES" id="533" customClass="StageView">
                                         <rect key="frame" x="0.0" y="0.0" width="496" height="600"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <connections>
+                                            <outlet property="appDelegate" destination="494" id="wzm-NR-DaN"/>
+                                        </connections>
                                     </openGLView>
                                 </subviews>
                             </customView>

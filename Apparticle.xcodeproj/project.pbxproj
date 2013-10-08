@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2B33BFF21800429100BAEB4A /* ParticleSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B33BFF11800429100BAEB4A /* ParticleSystem.m */; };
 		2B34D024180353F700D6093F /* FileFormatCocos2d.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B34D023180353F700D6093F /* FileFormatCocos2d.m */; };
+		2B62995F18048AB700950753 /* StageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B62995E18048AB700950753 /* StageView.m */; };
 		2BAC9619180321A800CA48C2 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 2BAC9617180321A800CA48C2 /* Credits.rtf */; };
 		2BAC961B180323EF00CA48C2 /* default.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2BAC961A180323EF00CA48C2 /* default.plist */; };
 		2BAEF5E31803AC4500DFBCCC /* GZIP.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BAEF5E01803AC4500DFBCCC /* GZIP.m */; };
@@ -146,6 +147,8 @@
 		2B33BFF11800429100BAEB4A /* ParticleSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticleSystem.m; sourceTree = "<group>"; };
 		2B34D022180353F700D6093F /* FileFormatCocos2d.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileFormatCocos2d.h; sourceTree = "<group>"; };
 		2B34D023180353F700D6093F /* FileFormatCocos2d.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileFormatCocos2d.m; sourceTree = "<group>"; };
+		2B62995D18048AB700950753 /* StageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StageView.h; sourceTree = "<group>"; };
+		2B62995E18048AB700950753 /* StageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StageView.m; sourceTree = "<group>"; };
 		2BAC9618180321A800CA48C2 /* English */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = English; path = Resources/English.lproj/Credits.rtf; sourceTree = "<group>"; };
 		2BAC961A180323EF00CA48C2 /* default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = default.plist; path = Resources/default.plist; sourceTree = "<group>"; };
 		2BAEF5DF1803AC4500DFBCCC /* GZIP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GZIP.h; path = libs/GZIP.h; sourceTree = "<group>"; };
@@ -496,6 +499,8 @@
 				2BC7FCA417FE4FDF00C8B8CB /* PercentValueTransformer.m */,
 				2BD8FA5C17FDE0EB0060C67B /* StageLayer.h */,
 				2BD8FA5D17FDE0EB0060C67B /* StageLayer.m */,
+				2B62995D18048AB700950753 /* StageView.h */,
+				2B62995E18048AB700950753 /* StageView.m */,
 				2BD8F8E117FDE0E80060C67B /* libs */,
 				2BD8F8D617FDE0E80060C67B /* Resources */,
 				2BD8FA5517FDE0EB0060C67B /* Supporting Files */,
@@ -981,6 +986,7 @@
 				2BD8F94017FDE0E90060C67B /* CCLabelBMFont.m in Sources */,
 				2BD8F9ED17FDE0EA0060C67B /* ccCArray.m in Sources */,
 				2BC7FCA817FE601C00C8B8CB /* BlendFuncValueTransformer.m in Sources */,
+				2B62995F18048AB700950753 /* StageView.m in Sources */,
 				2BD8FA1717FDE0EB0060C67B /* CDXMacOSXSupport.m in Sources */,
 				2BD8FA0B17FDE0EB0060C67B /* ZipUtils.m in Sources */,
 				2BD8F8FD17FDE0E80060C67B /* CCActionManager.m in Sources */,
