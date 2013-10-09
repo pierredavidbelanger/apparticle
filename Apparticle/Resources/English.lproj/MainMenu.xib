@@ -124,6 +124,19 @@
                                     <action selector="showHelp:" target="-1" id="493"/>
                                 </connections>
                             </menuItem>
+                            <menuItem isSeparatorItem="YES" id="2n1-3q-Dpa"/>
+                            <menuItem title="Report an issue" id="U0j-fi-e3r">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="reportAnIssue:" target="494" id="bZM-px-UV6"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Request a feature" id="NuX-KJ-0wz">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="requestAFeature:" target="494" id="y7b-pa-156"/>
+                                </connections>
+                            </menuItem>
                         </items>
                     </menu>
                 </menuItem>

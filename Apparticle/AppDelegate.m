@@ -225,6 +225,14 @@ typedef NSUInteger SaveBeforeMode;
     }
 }
 
+- (IBAction)reportAnIssue:(id)sender {
+    [NSWorkspace.sharedWorkspace openURL:[NSURL URLWithString:@"https://github.com/pierredavidbelanger/apparticle/issues/new?labels=bug"]];
+}
+
+- (IBAction)requestAFeature:(id)sender {
+    [NSWorkspace.sharedWorkspace openURL:[NSURL URLWithString:@"https://github.com/pierredavidbelanger/apparticle/issues/new?labels=enhancement"]];
+}
+
 - (IBAction)imageDragPerformed:(id)sender {
     NSLog(@"imageDragPerformed:%@", sender);
     NamedImageView *imageView = sender;

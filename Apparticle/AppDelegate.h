@@ -40,6 +40,8 @@
 
 - (IBAction)open:(id)sender;
 - (IBAction)save:(id)sender;
+- (IBAction)reportAnIssue:(id)sender;
+- (IBAction)requestAFeature:(id)sender;
 
 - (IBAction)imageDragPerformed:(id)sender;
 
