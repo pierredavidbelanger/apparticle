@@ -130,7 +130,7 @@ typedef NSUInteger SaveBeforeMode;
 
 - (void)applicationWillTerminate:(NSNotification *)notification
 {
-	[[CCDirector sharedDirector] end];
+    [[CCDirector sharedDirector] performSelector:@selector(end) onThread:[[CCDirector sharedDirector] runningThread] withObject:nil waitUntilDone:YES];
 }
 
 - (BOOL)showStats
