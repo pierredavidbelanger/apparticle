@@ -10,14 +10,22 @@
         <language>en</language>
 
         <item>
-            <title>Version 0.2</title>
+            <title>Version 0.3</title>
             <description><![CDATA[
-                <h2>First available release</h2>
+                <h2>First official version</h2>
+                <b>Content:</b>
+                <ul>
+                    <li>added menu item to report an issue and request a feature</li>
+                    <li>integrated Sparkle to have auto update</li>
+                    <li>now signed with an Apple Developer ID</li>
+                    <li>fixed a bug with the alpha variation sliders</li>
+                    <li>fixed a race condition when leaving the app</li>
+                </ul>
             ]]></description>
-            <pubDate>Wed, 08 Oct 2013 17:00:00 -0500</pubDate>
-            <enclosure url="http://apparticle.pjer.ca/download/Apparticle-0.2.0.201310081700-alpha.zip"
-                       sparkle:version="0.2.0.201310081700-alpha"
-                       sparkle:shortVersionString="0.2"
+            <pubDate>Wed, 09 Oct 2013 22:00:00 -0500</pubDate>
+            <enclosure url="http://apparticle.pjer.ca/download/Apparticle-0.3.0.zip"
+                       sparkle:version="0.3.0"
+                       sparkle:shortVersionString="0.3"
                        type="application/octet-stream"/>
         </item>
 
