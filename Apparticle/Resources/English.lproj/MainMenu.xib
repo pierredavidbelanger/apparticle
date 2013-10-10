@@ -26,6 +26,12 @@
                             <menuItem isSeparatorItem="YES" id="236">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
+                            <menuItem title="Check for Updates…" id="o3Q-GQ-61w">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="checkForUpdates:" target="SmY-73-PQB" id="KiE-Ia-Llh"/>
+                                </connections>
+                            </menuItem>
                             <menuItem title="Preferences…" keyEquivalent="," id="129"/>
                             <menuItem isSeparatorItem="YES" id="143">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
@@ -125,13 +131,13 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="2n1-3q-Dpa"/>
-                            <menuItem title="Report an issue" id="U0j-fi-e3r">
+                            <menuItem title="Report an Issue" id="U0j-fi-e3r">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="reportAnIssue:" target="494" id="bZM-px-UV6"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Request a feature" id="NuX-KJ-0wz">
+                            <menuItem title="Request a Feature" id="NuX-KJ-0wz">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="requestAFeature:" target="494" id="y7b-pa-156"/>
@@ -2020,6 +2026,7 @@
             </connections>
         </customObject>
         <customObject id="420" customClass="NSFontManager"/>
+        <customObject id="SmY-73-PQB" customClass="SUUpdater"/>
         <objectController objectClassName="ParticleSystem" id="aAp-Ai-wAc" userLabel="Particle Object Controller">
             <connections>
                 <binding destination="494" name="contentObject" keyPath="stage.part" id="y5o-c0-xq5"/>
