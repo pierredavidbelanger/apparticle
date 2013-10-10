@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B01A0221805FEB60069A597 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B01A0211805FEB60069A597 /* Sparkle.framework */; };
+		2B01A02518060D0B0069A597 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B01A0211805FEB60069A597 /* Sparkle.framework */; };
 		2B33BFF21800429100BAEB4A /* ParticleSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B33BFF11800429100BAEB4A /* ParticleSystem.m */; };
 		2B34D024180353F700D6093F /* FileFormatCocos2d.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B34D023180353F700D6093F /* FileFormatCocos2d.m */; };
 		2B62995F18048AB700950753 /* StageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B62995E18048AB700950753 /* StageView.m */; };
@@ -142,7 +144,21 @@
 		2BD8FA6517FDE5620060C67B /* fire.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BD8FA6417FDE5620060C67B /* fire.png */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		2B01A02418060CDA0069A597 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2B01A02518060D0B0069A597 /* Sparkle.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		2B01A0211805FEB60069A597 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		2B33BFF01800429100BAEB4A /* ParticleSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleSystem.h; sourceTree = "<group>"; };
 		2B33BFF11800429100BAEB4A /* ParticleSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticleSystem.m; sourceTree = "<group>"; };
 		2B34D022180353F700D6093F /* FileFormatCocos2d.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileFormatCocos2d.h; sourceTree = "<group>"; };
@@ -441,6 +457,7 @@
 				2BD8F8CE17FDE0E80060C67B /* OpenAL.framework in Frameworks */,
 				2BD8F8D417FDE0E80060C67B /* Foundation.framework in Frameworks */,
 				2BD8F8CA17FDE0E80060C67B /* QuartzCore.framework in Frameworks */,
+				2B01A0221805FEB60069A597 /* Sparkle.framework in Frameworks */,
 				2BD8F8D217FDE0E80060C67B /* AppKit.framework in Frameworks */,
 				2BD8F8CC17FDE0E80060C67B /* OpenGL.framework in Frameworks */,
 				2BD8F8D017FDE0E80060C67B /* AudioToolbox.framework in Frameworks */,
@@ -470,6 +487,7 @@
 		2BD8F8C817FDE0E80060C67B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2B01A0211805FEB60069A597 /* Sparkle.framework */,
 				2BD8F8C917FDE0E80060C67B /* QuartzCore.framework */,
 				2BD8F8CB17FDE0E80060C67B /* OpenGL.framework */,
 				2BD8F8CD17FDE0E80060C67B /* OpenAL.framework */,
@@ -906,6 +924,7 @@
 				2BD8F8C217FDE0E80060C67B /* Sources */,
 				2BD8F8C317FDE0E80060C67B /* Frameworks */,
 				2BD8F8C417FDE0E80060C67B /* Resources */,
+				2B01A02418060CDA0069A597 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -924,6 +943,16 @@
 			attributes = {
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = PjEr.ca;
+				TargetAttributes = {
+					2BD8F8C517FDE0E80060C67B = {
+						DevelopmentTeam = HX5SQ2EY4E;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
+					};
+				};
 			};
 			buildConfigurationList = 2BD8F8C117FDE0E80060C67B /* Build configuration list for PBXProject "Apparticle" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1166,7 +1195,12 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					.,
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Apparticle/Prefix.pch;
@@ -1191,7 +1225,12 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					.,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Apparticle/Prefix.pch;
 				HEADER_SEARCH_PATHS = "\"Apparticle/libs/kazmath/include\"";

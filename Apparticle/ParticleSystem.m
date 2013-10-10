@@ -300,7 +300,7 @@
 
 - (CGFloat)startColorAlphaVariation
 {
-    return self.startColorVar.r;
+    return self.startColorVar.a;
 }
 
 - (void)setStartColorAlphaVariation:(CGFloat)c
@@ -350,7 +350,7 @@
 
 - (CGFloat)endColorAlphaVariation
 {
-    return self.endColorVar.r;
+    return self.endColorVar.a;
 }
 
 - (void)setEndColorAlphaVariation:(CGFloat)c

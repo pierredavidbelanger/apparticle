@@ -130,7 +130,7 @@ typedef NSUInteger SaveBeforeMode;
 
 - (void)applicationWillTerminate:(NSNotification *)notification
 {
-	[[CCDirector sharedDirector] end];
+    [[CCDirector sharedDirector] performSelector:@selector(end) onThread:[[CCDirector sharedDirector] runningThread] withObject:nil waitUntilDone:YES];
 }
 
 - (BOOL)showStats
@@ -223,6 +223,14 @@ typedef NSUInteger SaveBeforeMode;
         [self doSave];
         [self doAfterSave];
     }
+}
+
+- (IBAction)reportAnIssue:(id)sender {
+    [NSWorkspace.sharedWorkspace openURL:[NSURL URLWithString:@"https://github.com/pierredavidbelanger/apparticle/issues/new?labels=bug"]];
+}
+
+- (IBAction)requestAFeature:(id)sender {
+    [NSWorkspace.sharedWorkspace openURL:[NSURL URLWithString:@"https://github.com/pierredavidbelanger/apparticle/issues/new?labels=enhancement"]];
 }
 
 - (IBAction)imageDragPerformed:(id)sender {
