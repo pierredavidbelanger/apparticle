@@ -10,6 +10,21 @@
         <language>en</language>
 
         <item>
+            <title>Version 0.4</title>
+            <description><![CDATA[
+                <ul>
+                    <li>Fix compatibility issue (and bump to requirement to OS X 10.9)</li>
+                    <li>Allows one to open Cocos2D preset emitters</li>
+                </ul>
+            ]]></description>
+            <pubDate>Sat, 27 Feb 2016 18:30:00 -0500</pubDate>
+            <enclosure url="https://github.com/pierredavidbelanger/apparticle/releases/download/0.4/Apparticle.app.zip"
+                       sparkle:version="0.4.0"
+                       sparkle:shortVersionString="0.4"
+                       type="application/octet-stream"/>
+        </item>
+
+        <item>
             <title>Version 0.3</title>
             <description><![CDATA[
                 <h2>First official version</h2>
