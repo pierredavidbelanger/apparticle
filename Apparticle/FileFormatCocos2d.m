@@ -245,4 +245,78 @@
     part.blendFunc = b;
 }
 
+- (void)readParticleSystem:(ParticleSystem *)part fromPreset:(NSString *)preset {
+    
+    Class presetPartClass = NSClassFromString(preset);
+    if (!presetPartClass) return;
+    
+    CCParticleSystemQuad *presetPart = [[presetPartClass alloc] init];
+    if (!presetPart) return;
+    
+    part.totalParticles = presetPart.totalParticles;
+    
+    part.duration = presetPart.duration;
+    
+    part.position = presetPart.position;
+    part.posVar = presetPart.posVar;
+    
+    part.life = presetPart.life;
+    part.lifeVar = presetPart.lifeVar;
+    
+    part.emissionRate = presetPart.emissionRate;
+    
+    part.angle = presetPart.angle;
+    part.angleVar = presetPart.angleVar;
+    
+    part.startSize = presetPart.startSize;
+    part.startSizeVar = presetPart.startSizeVar;
+    part.endSize = presetPart.endSize;
+    part.endSizeVar = presetPart.endSizeVar;
+    
+    part.startSpin = presetPart.startSpin;
+    part.startSpinVar = presetPart.startSpinVar;
+    part.endSpin = presetPart.endSpin;
+    part.endSpinVar = presetPart.endSpinVar;
+    
+    part.emitterMode = presetPart.emitterMode;
+    
+    if ([part isModeGravity]) {
+        
+        part.gravity = presetPart.gravity;
+        
+        part.speed = presetPart.speed;
+        part.speedVar = presetPart.speedVar;
+        
+        part.radialAccel = presetPart.radialAccel;
+        part.radialAccelVar = presetPart.radialAccelVar;
+        
+        part.tangentialAccel = presetPart.tangentialAccel;
+        part.tangentialAccelVar = presetPart.tangentialAccelVar;
+        
+    } else if ([part isModeRadius]) {
+        
+        part.startRadius = presetPart.startRadius;
+        part.startRadiusVar = presetPart.startRadiusVar;
+        
+        part.endRadius = presetPart.endRadius;
+        part.endRadiusVar = presetPart.endRadiusVar;
+        
+        part.rotatePerSecond = presetPart.rotatePerSecond;
+        part.rotatePerSecondVar = presetPart.rotatePerSecondVar;
+        
+    }
+    
+    part.textureEmbedded = NO;
+    part.textureImage = [NSImage imageNamed:@"fire.png"];
+    part.textureName = @"fire.png";
+    
+    part.startColor = presetPart.startColor;
+    part.startColorVar = presetPart.startColorVar;
+    
+    part.endColor = presetPart.endColor;
+    part.endColorVar = presetPart.endColorVar;
+    
+    part.blendFunc = presetPart.blendFunc;
+}
+
 @end

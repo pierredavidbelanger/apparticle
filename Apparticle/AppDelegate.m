@@ -27,16 +27,10 @@
 
 #import "FileFormatCocos2d.h"
 
-enum {
-    SaveBeforeModeNone = 0,
-    SaveBeforeModeQuit = 1,
-    SaveBeforeModeOpen = 2
-};
-typedef NSUInteger SaveBeforeMode;
-
 @interface AppDelegate ()
 
-@property SaveBeforeMode saveBeforeMode;
+@property (weak) IBOutlet NSMenu *openPresetMenu;
+@property (strong) NSArray<NSString *> *presets;
 
 @end
 
@@ -48,7 +42,7 @@ typedef NSUInteger SaveBeforeMode;
 {
     [NSColorPanel sharedColorPanel].showsAlpha = YES;
     
-    self.saveBeforeMode = SaveBeforeModeNone;
+    [self populateOpenPresetMenu];
     
 	CCDirectorMac *director = (CCDirectorMac*) [CCDirector sharedDirector];
 
@@ -89,43 +83,11 @@ typedef NSUInteger SaveBeforeMode;
 {
     if (![self.window isDocumentEdited])
         return NSTerminateNow;
-    NSAlert *alert = [NSAlert alertWithMessageText:@"Save the current particle system?" defaultButton:@"Save" alternateButton:@"Discard" otherButton:@"Cancel" informativeTextWithFormat:@"You can save or discard the current changes before leaving."];
-    [alert beginSheetModalForWindow:self.window modalDelegate:self didEndSelector:@selector(quitAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
+    [self doSaveFlowWithPromptThenCallback:^(NSModalResponse returnCode) {
+        BOOL terminate = returnCode == NSAlertDefaultReturn || returnCode == NSAlertAlternateReturn;
+        [[NSApplication sharedApplication] replyToApplicationShouldTerminate:terminate];
+    }];
     return NSTerminateLater;
-}
-
-- (void)quitAlertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
-{
-    switch (returnCode) {
-        case NSAlertDefaultReturn:
-            self.saveBeforeMode = SaveBeforeModeQuit;
-            [self performSelectorOnMainThread:@selector(save:) withObject:self waitUntilDone:NO];
-            break;
-        case NSAlertAlternateReturn:
-            [[NSApplication sharedApplication] replyToApplicationShouldTerminate:YES];
-            break;
-        case NSAlertOtherReturn:
-        default:
-            [[NSApplication sharedApplication] replyToApplicationShouldTerminate:NO];
-            break;
-    }
-}
-
-- (void)openAlertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
-{
-    switch (returnCode) {
-        case NSAlertDefaultReturn:
-            self.saveBeforeMode = SaveBeforeModeOpen;
-            [self performSelectorOnMainThread:@selector(save:) withObject:self waitUntilDone:NO];
-            break;
-        case NSAlertAlternateReturn:
-            [self.window setDocumentEdited:NO];
-            [self performSelectorOnMainThread:@selector(open:) withObject:self waitUntilDone:NO];
-            break;
-        case NSAlertOtherReturn:
-        default:
-            break;
-    }
 }
 
 - (void)applicationWillTerminate:(NSNotification *)notification
@@ -163,66 +125,23 @@ typedef NSUInteger SaveBeforeMode;
     [self.stage reshape:size];
 }
 
-- (void)doOpen
-{
-    FileFormatCocos2d *fileFormat = [[FileFormatCocos2d alloc] init];
-    [fileFormat readParticleSystem:self.stage.part fromURL:[self.window representedURL]];
-    [self.window setDocumentEdited:NO];
-    [self.window setTitleWithRepresentedFilename:[[self.window representedURL] path]];
-}
-
 - (IBAction)open:(id)sender {
-    if ([self.window isDocumentEdited]) {
-        NSAlert *alert = [NSAlert alertWithMessageText:@"Save the current particle system?" defaultButton:@"Save" alternateButton:@"Discard" otherButton:@"Cancel" informativeTextWithFormat:@"You can save or discard the current changes before opening an other file."];
-        [alert beginSheetModalForWindow:self.window modalDelegate:self didEndSelector:@selector(openAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
-    } else {
-        NSOpenPanel *p = [NSOpenPanel openPanel];
-        p.title = @"Open a particle system";
-        p.allowedFileTypes = @[@"plist"];
-        [p beginSheetModalForWindow:self.window completionHandler:^(NSInteger result) {
-            if (result == NSFileHandlingPanelOKButton) {
-                [self.window setRepresentedURL:p.URL];
-                [self doOpen];
-            }
-        }];
-    }
+    [self doOpenFlowWithPreset:nil thenCallback:^(NSModalResponse returnCode) {
+        // ignore return code
+    }];
 }
 
-- (void)doSave
-{
-    FileFormatCocos2d *fileFormat = [[FileFormatCocos2d alloc] init];
-    [fileFormat writeParticleSystem:self.stage.part toURL:[self.window representedURL]];
-    [self.window setDocumentEdited:NO];
-    [self.window setTitleWithRepresentedFilename:[[self.window representedURL] path]];
-}
-
-- (void)doAfterSave
-{
-    if (self.saveBeforeMode == SaveBeforeModeQuit) {
-        [[NSApplication sharedApplication] replyToApplicationShouldTerminate:YES];
-    } else if (self.saveBeforeMode == SaveBeforeModeOpen) {
-        //[self open:self];
-        [self performSelectorOnMainThread:@selector(open:) withObject:self waitUntilDone:NO];
-    }
-    self.saveBeforeMode = SaveBeforeModeNone;
+- (IBAction)openPreset:(id)sender {
+    NSMenuItem *item = sender;
+    [self doOpenFlowWithPreset:self.presets[item.tag] thenCallback:^(NSModalResponse returnCode) {
+        // ignore return code
+    }];
 }
 
 - (IBAction)save:(id)sender {
-    if (![self.window representedURL]) {
-        NSSavePanel *p = [NSSavePanel savePanel];
-        p.title = @"Save the current particle system";
-        p.allowedFileTypes = @[@"plist"];
-        [p beginSheetModalForWindow:self.window completionHandler:^(NSInteger result) {
-            if (result == NSFileHandlingPanelOKButton) {
-                [self.window setRepresentedURL:p.URL];
-                [self doSave];
-            }
-            [self doAfterSave];
-        }];
-    } else {
-        [self doSave];
-        [self doAfterSave];
-    }
+    [self doSaveFlowWithoutPromptThenCallback:^(NSModalResponse returnCode) {
+        // ignore return code
+    }];
 }
 
 - (IBAction)reportAnIssue:(id)sender {
@@ -265,6 +184,101 @@ typedef NSUInteger SaveBeforeMode;
 {
     [window_ flushWindow];
     NSEnableScreenUpdates();
+}
+
+#pragma mark AppDelegate - Impl
+
+- (void)populateOpenPresetMenu {
+    self.presets = @[@"CCParticleFire", @"CCParticleFireworks", @"CCParticleSun",
+                     @"CCParticleGalaxy", @"CCParticleFlower", @"CCParticleMeteor",
+                     @"CCParticleSpiral", @"CCParticleExplosion", @"CCParticleSmoke",
+                     @"CCParticleSnow", @"CCParticleRain"];
+    for (int i = 0; i < self.presets.count; i++) {
+        NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:self.presets[i] action:@selector(openPreset:) keyEquivalent:@""];
+        item.tag = i;
+        [self.openPresetMenu addItem:item];
+    }
+}
+
+
+- (void)doSaveToRepresentedURL {
+    FileFormatCocos2d *fileFormat = [[FileFormatCocos2d alloc] init];
+    [fileFormat writeParticleSystem:self.stage.part toURL:[self.window representedURL]];
+    [self.window setDocumentEdited:NO];
+    [self.window setTitleWithRepresentedFilename:[[self.window representedURL] path]];
+}
+
+- (void)doSaveFlowWithoutPromptThenCallback:(void (^)(NSModalResponse returnCode))callback {
+    if (![self.window representedURL]) {
+        NSSavePanel *p = [NSSavePanel savePanel];
+        p.title = @"Save the current particle system";
+        p.allowedFileTypes = @[@"plist"];
+        [p beginSheetModalForWindow:self.window completionHandler:^(NSInteger result) {
+            if (result == NSFileHandlingPanelOKButton) {
+                [self.window setRepresentedURL:p.URL];
+                [self doSaveToRepresentedURL];
+            }
+            callback(NSAlertDefaultReturn);
+        }];
+    } else {
+        [self doSaveToRepresentedURL];
+        callback(NSAlertDefaultReturn);
+    }
+}
+
+- (void)doSaveFlowWithPromptThenCallback:(void (^)(NSModalResponse returnCode))callback {
+    NSAlert *alert = [NSAlert alertWithMessageText:@"Save the current particle system?"
+                                     defaultButton:@"Save" alternateButton:@"Discard" otherButton:@"Cancel"
+                         informativeTextWithFormat:@"You can save or discard the current changes."];
+    if ([self.window isDocumentEdited]) {
+        [alert beginSheetModalForWindow:self.window completionHandler:^(NSModalResponse returnCode) {
+            switch (returnCode) {
+                case NSAlertDefaultReturn:
+                    [self doSaveFlowWithoutPromptThenCallback:callback];
+                    break;
+                default:
+                    callback(returnCode);
+                    break;
+            }
+        }];
+    } else {
+        callback(NSAlertDefaultReturn);
+    }
+}
+
+- (void)doOpenFromRepresentedURL {
+    FileFormatCocos2d *fileFormat = [[FileFormatCocos2d alloc] init];
+    [fileFormat readParticleSystem:self.stage.part fromURL:[self.window representedURL]];
+    [self.window setDocumentEdited:NO];
+    [self.window setTitleWithRepresentedFilename:[[self.window representedURL] path]];
+}
+
+- (void)doOpenFromPreset:(NSString *)preset {
+    FileFormatCocos2d *fileFormat = [[FileFormatCocos2d alloc] init];
+    [fileFormat readParticleSystem:self.stage.part fromPreset:preset];
+    [self.window setDocumentEdited:NO];
+    [self.window setTitle:preset];
+}
+
+-(void)doOpenFlowWithPreset:(NSString *)preset thenCallback:(void (^)(NSModalResponse returnCode))callback {
+    [self doSaveFlowWithPromptThenCallback:^(NSModalResponse returnCode) {
+        if (returnCode == NSAlertDefaultReturn || returnCode == NSAlertAlternateReturn) {
+            if (!preset) {
+                NSOpenPanel *p = [NSOpenPanel openPanel];
+                p.title = @"Open a particle system";
+                p.allowedFileTypes = @[@"plist"];
+                [p beginSheetModalForWindow:self.window completionHandler:^(NSInteger result) {
+                    if (result == NSFileHandlingPanelOKButton) {
+                        [self.window setRepresentedURL:p.URL];
+                        [self doOpenFromRepresentedURL];
+                    }
+                }];
+            } else {
+                [self.window setRepresentedURL:nil];
+                [self doOpenFromPreset:preset];
+            }
+        }
+    }];
 }
 
 @end
