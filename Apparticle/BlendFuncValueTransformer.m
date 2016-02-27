@@ -23,6 +23,8 @@
 
 #import "BlendFuncValueTransformer.h"
 
+#import "cocos2d.h"
+
 @implementation BlendFuncValueTransformer
 
 - (id)transformedValue:(id)value

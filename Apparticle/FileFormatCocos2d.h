@@ -31,4 +31,6 @@
 
 - (void)readParticleSystem:(ParticleSystem *)part fromURL:(NSURL *)url;
 
+- (void)readParticleSystem:(ParticleSystem *)part fromPreset:(NSString *)preset;
+
 @end
