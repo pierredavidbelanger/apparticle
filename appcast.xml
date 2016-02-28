@@ -10,6 +10,20 @@
         <language>en</language>
 
         <item>
+            <title>Version 0.4.1</title>
+            <description><![CDATA[
+                <ul>
+                    <li>Sparkle update</li>
+                </ul>
+            ]]></description>
+            <pubDate>Sat, 27 Feb 2016 20:00:00 -0500</pubDate>
+            <enclosure url="https://github.com/pierredavidbelanger/apparticle/releases/download/0.4.1/Apparticle.app.zip"
+                       sparkle:version="0.4.1"
+                       sparkle:shortVersionString="0.4.1"
+                       type="application/octet-stream"/>
+        </item>
+
+        <item>
             <title>Version 0.4</title>
             <description><![CDATA[
                 <ul>
