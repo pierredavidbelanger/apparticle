@@ -269,10 +269,8 @@
 		2BD8FA5B17FDE0EB0060C67B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD8FA5A17FDE0EB0060C67B /* AppDelegate.m */; };
 		2BD8FA5E17FDE0EB0060C67B /* StageLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD8FA5D17FDE0EB0060C67B /* StageLayer.m */; };
 		2BD8FA6517FDE5620060C67B /* fire.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BD8FA6417FDE5620060C67B /* fire.png */; };
-		A3CA0C3773CA7A044E29B3E0 /* libPods-Apparticle Map App Store.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 81F33746857AAE1583416C48 /* libPods-Apparticle Map App Store.a */; };
 		C67CAAF29CC4A7A8BADE8E3A /* libPods-ApparticleThirdParty.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 792B0B33488752605724B3E8 /* libPods-ApparticleThirdParty.a */; };
 		DEFD0E1D4B43E9A7B5E68A5D /* libPods-ApparticleMapAppStore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B06E941EA57E71A1B72B5360 /* libPods-ApparticleMapAppStore.a */; };
-		F69363952EE80468957D3847 /* libPods-Apparticle Third Party.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA5914FFF5E4078D58421A50 /* libPods-Apparticle Third Party.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -605,7 +603,6 @@
 				2B648EF11C82923B00A06B10 /* AppKit.framework in Frameworks */,
 				2B648EF21C82923B00A06B10 /* OpenGL.framework in Frameworks */,
 				2B648EF31C82923B00A06B10 /* AudioToolbox.framework in Frameworks */,
-				A3CA0C3773CA7A044E29B3E0 /* libPods-Apparticle Map App Store.a in Frameworks */,
 				DEFD0E1D4B43E9A7B5E68A5D /* libPods-ApparticleMapAppStore.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -620,7 +617,6 @@
 				2BD8F8D217FDE0E80060C67B /* AppKit.framework in Frameworks */,
 				2BD8F8CC17FDE0E80060C67B /* OpenGL.framework in Frameworks */,
 				2BD8F8D017FDE0E80060C67B /* AudioToolbox.framework in Frameworks */,
-				F69363952EE80468957D3847 /* libPods-Apparticle Third Party.a in Frameworks */,
 				C67CAAF29CC4A7A8BADE8E3A /* libPods-ApparticleThirdParty.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
