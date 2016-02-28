@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2B01A0221805FEB60069A597 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B01A0211805FEB60069A597 /* Sparkle.framework */; };
-		2B01A02518060D0B0069A597 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2B01A0211805FEB60069A597 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		2B33BFF21800429100BAEB4A /* ParticleSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B33BFF11800429100BAEB4A /* ParticleSystem.m */; };
 		2B34D024180353F700D6093F /* FileFormatCocos2d.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B34D023180353F700D6093F /* FileFormatCocos2d.m */; };
 		2B62995F18048AB700950753 /* StageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B62995E18048AB700950753 /* StageView.m */; };
@@ -142,6 +140,7 @@
 		2BD8FA5B17FDE0EB0060C67B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD8FA5A17FDE0EB0060C67B /* AppDelegate.m */; };
 		2BD8FA5E17FDE0EB0060C67B /* StageLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD8FA5D17FDE0EB0060C67B /* StageLayer.m */; };
 		2BD8FA6517FDE5620060C67B /* fire.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BD8FA6417FDE5620060C67B /* fire.png */; };
+		3A1454D42BDEDD2C082B4CC8 /* libPods-Apparticle.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 126D0C33EF74941501B7F4AD /* libPods-Apparticle.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -151,14 +150,13 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				2B01A02518060D0B0069A597 /* Sparkle.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2B01A0211805FEB60069A597 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
+		126D0C33EF74941501B7F4AD /* libPods-Apparticle.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Apparticle.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B33BFF01800429100BAEB4A /* ParticleSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleSystem.h; sourceTree = "<group>"; };
 		2B33BFF11800429100BAEB4A /* ParticleSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticleSystem.m; sourceTree = "<group>"; };
 		2B34D022180353F700D6093F /* FileFormatCocos2d.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileFormatCocos2d.h; sourceTree = "<group>"; };
@@ -447,6 +445,8 @@
 		2BD8FA5C17FDE0EB0060C67B /* StageLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StageLayer.h; sourceTree = "<group>"; };
 		2BD8FA5D17FDE0EB0060C67B /* StageLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StageLayer.m; sourceTree = "<group>"; };
 		2BD8FA6417FDE5620060C67B /* fire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fire.png; path = Resources/fire.png; sourceTree = "<group>"; };
+		ABA59E569CF151A68A5E3F18 /* Pods-Apparticle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Apparticle.release.xcconfig"; path = "Pods/Target Support Files/Pods-Apparticle/Pods-Apparticle.release.xcconfig"; sourceTree = "<group>"; };
+		BB54E6F32C59F49E1DF96B52 /* Pods-Apparticle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Apparticle.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Apparticle/Pods-Apparticle.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -457,22 +457,32 @@
 				2BD8F8CE17FDE0E80060C67B /* OpenAL.framework in Frameworks */,
 				2BD8F8D417FDE0E80060C67B /* Foundation.framework in Frameworks */,
 				2BD8F8CA17FDE0E80060C67B /* QuartzCore.framework in Frameworks */,
-				2B01A0221805FEB60069A597 /* Sparkle.framework in Frameworks */,
 				2BD8F8D217FDE0E80060C67B /* AppKit.framework in Frameworks */,
 				2BD8F8CC17FDE0E80060C67B /* OpenGL.framework in Frameworks */,
 				2BD8F8D017FDE0E80060C67B /* AudioToolbox.framework in Frameworks */,
+				3A1454D42BDEDD2C082B4CC8 /* libPods-Apparticle.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15DBA00A666B085562BE3F62 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BB54E6F32C59F49E1DF96B52 /* Pods-Apparticle.debug.xcconfig */,
+				ABA59E569CF151A68A5E3F18 /* Pods-Apparticle.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		2BD8F8BD17FDE0E80060C67B = {
 			isa = PBXGroup;
 			children = (
 				2BD8F8D517FDE0E80060C67B /* Apparticle */,
 				2BD8F8C817FDE0E80060C67B /* Frameworks */,
 				2BD8F8C717FDE0E80060C67B /* Products */,
+				15DBA00A666B085562BE3F62 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -487,13 +497,13 @@
 		2BD8F8C817FDE0E80060C67B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2B01A0211805FEB60069A597 /* Sparkle.framework */,
 				2BD8F8C917FDE0E80060C67B /* QuartzCore.framework */,
 				2BD8F8CB17FDE0E80060C67B /* OpenGL.framework */,
 				2BD8F8CD17FDE0E80060C67B /* OpenAL.framework */,
 				2BD8F8CF17FDE0E80060C67B /* AudioToolbox.framework */,
 				2BD8F8D117FDE0E80060C67B /* AppKit.framework */,
 				2BD8F8D317FDE0E80060C67B /* Foundation.framework */,
+				126D0C33EF74941501B7F4AD /* libPods-Apparticle.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -921,10 +931,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2BD8FA6117FDE0EB0060C67B /* Build configuration list for PBXNativeTarget "Apparticle" */;
 			buildPhases = (
+				3D373DE3AD415A7BE7AFC8D2 /* Check Pods Manifest.lock */,
 				2BD8F8C217FDE0E80060C67B /* Sources */,
 				2BD8F8C317FDE0E80060C67B /* Frameworks */,
 				2BD8F8C417FDE0E80060C67B /* Resources */,
 				2B01A02418060CDA0069A597 /* CopyFiles */,
+				E89BC35FE7E82944BF1849DB /* Embed Pods Frameworks */,
+				AF0F7C59C4E8FC6ACCCBB242 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -988,6 +1001,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3D373DE3AD415A7BE7AFC8D2 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AF0F7C59C4E8FC6ACCCBB242 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Apparticle/Pods-Apparticle-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E89BC35FE7E82944BF1849DB /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Apparticle/Pods-Apparticle-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2BD8F8C217FDE0E80060C67B /* Sources */ = {
@@ -1165,6 +1226,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
 					DEBUG,
 					"COCOS2D_DEBUG=1",
 					"CC_DIRECTOR_MAC_THREAD=2",
@@ -1200,8 +1262,10 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
 					NDEBUG,
 					"NS_BLOCK_ASSERTIONS=1",
+					"CC_DIRECTOR_MAC_THREAD=2",
 				);
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1217,6 +1281,7 @@
 		};
 		2BD8FA6217FDE0EB0060C67B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB54E6F32C59F49E1DF96B52 /* Pods-Apparticle.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -1226,17 +1291,18 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					.,
+					"$(PROJECT_DIR)",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Apparticle/Prefix.pch;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					DEBUG,
-					"COCOS2D_DEBUG=1",
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"Apparticle/libs/kazmath/include\"",
 				);
-				HEADER_SEARCH_PATHS = "\"Apparticle/libs/kazmath/include\"";
 				INFOPLIST_FILE = Apparticle/Resources/Info.plist;
 				OTHER_LDFLAGS = (
+					"$(inherited)",
 					"-lz",
 					"-lsqlite3",
 					"-ObjC",
@@ -1249,6 +1315,7 @@
 		};
 		2BD8FA6317FDE0EB0060C67B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABA59E569CF151A68A5E3F18 /* Pods-Apparticle.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -1258,12 +1325,17 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					.,
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Apparticle/Prefix.pch;
-				HEADER_SEARCH_PATHS = "\"Apparticle/libs/kazmath/include\"";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"Apparticle/libs/kazmath/include\"",
+				);
 				INFOPLIST_FILE = Apparticle/Resources/Info.plist;
 				OTHER_LDFLAGS = (
+					"$(inherited)",
 					"-lz",
 					"-lsqlite3",
 					"-ObjC",
