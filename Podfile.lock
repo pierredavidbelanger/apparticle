@@ -1,10 +1,16 @@
 PODS:
+  - Godzippa (1.1.0)
+  - NSData+Base64 (1.0.0)
   - Sparkle (1.13.1)
 
 DEPENDENCIES:
+  - Godzippa
+  - NSData+Base64
   - Sparkle
 
 SPEC CHECKSUMS:
+  Godzippa: 21621e8ddc2f1521db473a72b48148c3f0e79d76
+  NSData+Base64: 4e84902c4db907a15673474677e57763ef3903e4
   Sparkle: 2fbd47b869621d1e679c7554e3e19dda02104818
 
 COCOAPODS: 0.39.0

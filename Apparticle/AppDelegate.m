@@ -92,7 +92,8 @@
 
 - (void)applicationWillTerminate:(NSNotification *)notification
 {
-    [[CCDirector sharedDirector] performSelector:@selector(end) onThread:[[CCDirector sharedDirector] runningThread] withObject:nil waitUntilDone:YES];
+    // http://stackoverflow.com/questions/15932716/cocos2d-mac-shutdown-and-startup-at-runtime
+    //[[CCDirector sharedDirector] performSelector:@selector(end) onThread:[[CCDirector sharedDirector] runningThread] withObject:nil waitUntilDone:YES];
 }
 
 - (BOOL)showStats

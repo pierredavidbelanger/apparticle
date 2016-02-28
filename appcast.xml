@@ -9,6 +9,22 @@
         <description>Most recent changes with links to updates.</description>
         <language>en</language>
 
+        <!--item>
+            <title>Version 0.5.0</title>
+            <description><![CDATA[
+                <ul>
+                    <li>Bug fixing</li>
+                    <li>Use GZip and Base64 libs form CocoaPods</li>
+                    <li>Prepare for the Mac AppStore release</li>
+                </ul>
+            ]]></description>
+            <pubDate>Sat, 27 Feb 2016 20:00:00 -0500</pubDate>
+            <enclosure url="https://github.com/pierredavidbelanger/apparticle/releases/download/0.5.0/Apparticle.app.zip"
+                       sparkle:version="0.5.0"
+                       sparkle:shortVersionString="0.5.0"
+                       type="application/octet-stream"/>
+        </item-->
+
         <item>
             <title>Version 0.4.1</title>
             <description><![CDATA[

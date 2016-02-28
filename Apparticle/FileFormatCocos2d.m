@@ -23,8 +23,8 @@
 
 #import "FileFormatCocos2d.h"
 
-#import "NSData+Base64.h"
-#import "GZIP.h"
+#import <Godzippa/Godzippa.h>
+#import <NSData+Base64/NSData+Base64.h>
 
 @implementation FileFormatCocos2d
 
@@ -92,7 +92,7 @@
     
     if (part.textureEmbedded) {
         
-        d[@"textureImageData"] = [[[part.textureImage TIFFRepresentation] gzippedData] base64Encoding_xcd];
+        d[@"textureImageData"] = [[[part.textureImage TIFFRepresentation] dataByGZipCompressingWithError:nil] base64EncodedString];
         
     } else {
     
@@ -204,7 +204,7 @@
         
         part.textureEmbedded = YES;
         
-        part.textureImage = [[NSImage alloc] initWithData:[[NSData dataWithBase64Encoding_xcd:[d[@"textureImageData"] description]] gunzippedData]];
+        part.textureImage = [[NSImage alloc] initWithData:[[NSData dataFromBase64String:[d[@"textureImageData"] description]] dataByGZipDecompressingDataWithError:nil]];
         
     } else {
         

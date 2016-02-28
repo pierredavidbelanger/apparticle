@@ -129,7 +129,7 @@
     [self unschedule:@selector(restart:)];
     [super setDuration:v];
     [self resetSystem];
-    if (v > -1) {
+    if (v > 0) {
         [self schedule:@selector(restart:) interval:v + 0.5f];
     }
 }
