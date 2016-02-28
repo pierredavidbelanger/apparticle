@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://www.andymatuschak.org/xml-namespaces/sparkle">
+    <channel>
+
+        <title>Apparticle's Changelog</title>
+        <link>https://raw.githubusercontent.com/pierredavidbelanger/apparticle/master/appcast.xml</link>
+        <description>Most recent changes with links to updates.</description>
+        <language>en</language>
+
+        <item>
+            <title>Version 0.4</title>
+            <description><![CDATA[
+                <ul>
+                    <li>Fix compatibility issue (and bump to requirement to OS X 10.9)</li>
+                    <li>Allows one to open Cocos2D preset emitters</li>
+                </ul>
+            ]]></description>
+            <pubDate>Sat, 27 Feb 2016 18:30:00 -0500</pubDate>
+            <enclosure url="https://github.com/pierredavidbelanger/apparticle/releases/download/0.4/Apparticle.app.zip"
+                       sparkle:version="0.4.0"
+                       sparkle:shortVersionString="0.4"
+                       type="application/octet-stream"/>
+        </item>
+
+        <item>
+            <title>Version 0.3</title>
+            <description><![CDATA[
+                <h2>First official version</h2>
+                <b>Content:</b>
+                <ul>
+                    <li>added menu item to report an issue and request a feature</li>
+                    <li>integrated Sparkle to have auto update</li>
+                    <li>now signed with an Apple Developer ID</li>
+                    <li>fixed a bug with the alpha variation sliders</li>
+                    <li>fixed a race condition when leaving the app</li>
+                </ul>
+            ]]></description>
+            <pubDate>Wed, 09 Oct 2013 22:00:00 -0500</pubDate>
+            <enclosure url="https://github.com/pierredavidbelanger/apparticle/releases/download/0.3/Apparticle-0.3.0.zip"
+                       sparkle:version="0.3.0"
+                       sparkle:shortVersionString="0.3"
+                       type="application/octet-stream"/>
+        </item>
+
+    </channel>
+</rss>
